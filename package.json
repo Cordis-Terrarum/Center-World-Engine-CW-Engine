@@ -1,0 +1,25 @@
+{
+  "name": "center-world-engine-cw-engine",
+  "version": "1.0.0",
+  "description": "New Game engine for Cordis Terrarum!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cordis-Terrarum/Center-World-Engine-CW-Engine.git"
+  },
+  "keywords": [
+    "game_engine"
+  ],
+  "author": "Cordis Terrarum",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Cordis-Terrarum/Center-World-Engine-CW-Engine/issues"
+  },
+  "homepage": "https://github.com/Cordis-Terrarum/Center-World-Engine-CW-Engine#readme",
+  "devDependencies": {
+    "electron": "^7.0.0"
+  }
+}
