@@ -30,12 +30,13 @@ function createWindow() {
     mainWindow = new BrowserWindow({
         width: 1024,
         height: 800,
+        //frame: false,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js')
         }
     })
 
-    mainWindow.loadFile('Core_Window.html')
+    mainWindow.loadFile('./Center_World_Engine/Core/UI/Core_Window.html')
     mainWindow.on('closed', function () {
         mainWindow = null
     })
@@ -49,6 +50,6 @@ app.on('window-all-closed', function () {
 })
 
 app.on('activate', function () {
-    if (mainWindow === null) createWindow()
+    if (mainWindow === null) createWindow()     
 })
     
