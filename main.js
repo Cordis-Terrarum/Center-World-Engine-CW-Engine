@@ -6,7 +6,7 @@
 //in the Software without restriction, including without limitation the rights
 //to use, copy, modify, merge, publish, distribute, sublicense, and /or sell
 //copies of the Software, and to permit persons to whom the Software is
-//7furnished to do so, subject to the following conditions :
+//furnished to do so, subject to the following conditions :
 //
 //The above copyright noticeand this permission notice shall be included in all
 //copies or substantial portions of the Software.
@@ -20,26 +20,35 @@
 //SOFTWARE.
 //
 
-#include <node.h>
 
-namespace CWCore {
 
-	using v8::FunctionCallbackInfo;
-	using v8::Isolate;
-	using v8::Local;
-	using v8::Object;
-	using v8::String;
-	using v8::Value;
+const { app, BrowserWindow } = require('electron')
+const path = require('path')
+let mainWindow
 
-	void Method(const FunctionCallbackInfo<Value>& args) {
-		Isolate* isolate = args.GetIsolate();
-		args.GetReturnValue().Set(String::NewFromUtf8(isolate, "world"));
-	}
+function createWindow() {
+    mainWindow = new BrowserWindow({
+        width: 1024,
+        height: 800,
+        webPreferences: {
+            preload: path.join(__dirname, 'preload.js')
+        }
+    })
 
-	void init(Local<Object> exports) {
-		NODE_SET_METHOD(exports, "cwcore", Method);
-	}
-
-	NODE_MODULE(addon, init)
-
+    mainWindow.loadFile('Core_Window.html')
+    mainWindow.on('closed', function () {
+        mainWindow = null
+    })
 }
+
+app.on('ready', createWindow)
+
+// Quit when all windows are closed.
+app.on('window-all-closed', function () {
+    if (process.platform !== 'darwin') app.quit()
+})
+
+app.on('activate', function () {
+    if (mainWindow === null) createWindow()
+})
+    

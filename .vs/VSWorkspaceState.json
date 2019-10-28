@@ -1,8 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Center World Engine"
+    "\\Center World Engine",
+    "\\Center World Engine\\3rd-party",
+    "\\Center World Engine\\Core",
+    "\\Center World Engine\\Core\\Header",
+    "\\Center World Engine\\Core\\UI",
+    "\\Center World Engine\\Editor"
   ],
-  "SelectedNode": "\\Center World Engine\\Center World Engine.cpp",
+  "SelectedNode": "\\node-gyp",
   "PreviewInSolutionExplorer": false
 }

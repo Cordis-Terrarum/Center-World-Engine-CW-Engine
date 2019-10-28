@@ -6,7 +6,7 @@
 //in the Software without restriction, including without limitation the rights
 //to use, copy, modify, merge, publish, distribute, sublicense, and /or sell
 //copies of the Software, and to permit persons to whom the Software is
-//7furnished to do so, subject to the following conditions :
+//furnished to do so, subject to the following conditions :
 //
 //The above copyright noticeand this permission notice shall be included in all
 //copies or substantial portions of the Software.
@@ -20,26 +20,14 @@
 //SOFTWARE.
 //
 
-#include <node.h>
 
-namespace CWCore {
+window.addEventListener('DOMContentLoaded', () => {
+    const replaceText = (selector, text) => {
+        const element = document.getElementById(selector)
+        if (element) element.innerText = text
+    }
 
-	using v8::FunctionCallbackInfo;
-	using v8::Isolate;
-	using v8::Local;
-	using v8::Object;
-	using v8::String;
-	using v8::Value;
-
-	void Method(const FunctionCallbackInfo<Value>& args) {
-		Isolate* isolate = args.GetIsolate();
-		args.GetReturnValue().Set(String::NewFromUtf8(isolate, "world"));
-	}
-
-	void init(Local<Object> exports) {
-		NODE_SET_METHOD(exports, "cwcore", Method);
-	}
-
-	NODE_MODULE(addon, init)
-
-}
+    for (const type of ['chrome', 'node', 'electron']) {
+        replaceText(`${type}-version`, process.versions[type])
+    }
+})

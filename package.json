@@ -2,9 +2,9 @@
   "name": "center-world-engine-cw-engine",
   "version": "1.0.0",
   "description": "New Game engine for Cordis Terrarum!",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,12 @@
     "url": "https://github.com/Cordis-Terrarum/Center-World-Engine-CW-Engine/issues"
   },
   "homepage": "https://github.com/Cordis-Terrarum/Center-World-Engine-CW-Engine#readme",
+  "private": true,
+  "gypfile": true,
+  "nodeGypRebuild": true,
   "devDependencies": {
-    "electron": "^7.0.0"
+    "electron": "^7.0.0",
+    "electron-packager": "^14.0.6",
+    "electron-rebuild": "^1.8.6"
   }
 }
